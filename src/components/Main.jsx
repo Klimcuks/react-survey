@@ -8,12 +8,10 @@ function Main() {
   const [name, setName] = useState()
   const [email, setEmail] = useState()
 
- 
-  
-
-
   function handleSubmit(e){
     e.preventDefault()
+    resetName()
+    resetEmail()
     e.target.reset()
     console.log(rateColor, selectOption, comment, name, email)
   }
@@ -34,9 +32,15 @@ function Main() {
     console.log(e.target.value)
     setName(e.target.value)
   }
+  function resetName(){
+    setName('')
+  }
   function handleEmailInput(e){
     console.log(e.target.value)
     setEmail(e.target.value)
+  }
+  function resetEmail(){
+    setEmail('')
   }
  
   return (
@@ -104,7 +108,7 @@ function Main() {
       </label>
       <label>
         Put your name here (if you feel like it):
-        <input type="text" name="username" value={name} onChange={handleNameInput}/>
+        <input type="text" name="username" value={name} onChange={handleNameInput} />
       </label>
       <label>
         Leave us your email pretty please??
